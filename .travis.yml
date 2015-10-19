@@ -7,7 +7,7 @@ script:
   - files=`find . -name \*.h -print -o -name \*.cpp -print | sed -e ':a;N;$!ba;s/\n/ /g'`
   - ./utils/platypus -o ./report $files
 after_success:
-    "curl --ftp-create-dirs -T ./report/ -u $FTP_USER:$FTP_PASSWORD ftp://95.79.85.86/"
+    "curl --ftp-create-dirs -T ./report/index.html -u $FTP_USER:$FTP_PASSWORD ftp://95.79.85.86/index.html"
 notifications:
   email: false
 
