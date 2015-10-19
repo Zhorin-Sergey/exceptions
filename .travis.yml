@@ -1,0 +1,13 @@
+language: cpp
+compiler:
+  - gcc
+script:
+  - gcc -O2 ./utils/platypus.c -o ./utils/platypus
+  - mkdir report
+  - files=`find . -name \*.h -print -o -name \*.cpp -print | sed -e ':a;N;$!ba;s/\n/ /g'`
+  - ./utils/platypus -o ./report $files
+notifications:
+  email: false
+addons:
+  artifacts: true
+  s3_region: "exceptions-report"
