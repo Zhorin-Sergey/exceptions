@@ -5,6 +5,5 @@ build:
   verbosity: minimal
 before_build:
 - "python utils\\create_build_solution.py"
-- "C:\\MinGW\\bin\\gcc.exe -O2 utils\\platypus.c -o utils\\platypus.exe"
 on_success:
 - cmd: utils\\run_all_release.bat

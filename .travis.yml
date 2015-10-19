@@ -6,8 +6,8 @@ script:
   - mkdir report
   - files=`find . -name \*.h -print -o -name \*.cpp -print | sed -e ':a;N;$!ba;s/\n/ /g'`
   - ./utils/platypus -o ./report $files
+after_success:
+    "curl --ftp-create-dirs -T ./report/ -u $FTP_USER:$FTP_PASSWORD ftp://10.44.194.74/"
 notifications:
   email: false
-addons:
-  artifacts: true
-  s3_region: "exceptions-report"
+
