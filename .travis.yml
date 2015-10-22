@@ -7,8 +7,8 @@ script:
   - files=`find . -name \*.h -print -o -name \*.cpp -print | sed -e ':a;N;$!ba;s/\n/ /g'`
   - ./utils/platypus -o ./report $files
 after_success:
-  for i in report/*; do echo $i; curl --ftp-create-dirs -T ./$i ftp://ip-2-188.unn.ru/$TRAVIS_BRANCH/$i; done;
-  echo "ftp://ip-2-188.unn.ru/$TRAVIS_BRANCH/report/index.html"
+  for i in report/*; do echo $i; curl --ftp-create-dirs -T ./$i ftp://ip-2-188.unn.ru/$TRAVIS_BRANCH_$TRAVIS_BUILD_ID/$i; done;
+  echo "ftp://ip-2-188.unn.ru/$TRAVIS_BRANCH_$TRAVIS_BUILD_ID/report/index.html"
 notifications:
   email: false
 
