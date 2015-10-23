@@ -5,7 +5,7 @@
 template <class T>
 T MyDiv(T a, T b) {
   if (b == 0) {
-    throw exception();
+    throw int(-1);
   } else {
     return a / b;
   }
